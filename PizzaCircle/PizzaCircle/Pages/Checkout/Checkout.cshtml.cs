@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using PizzaCircle.Data;
+using PizzaCircle.Model;
 
 namespace PizzaCircle.Pages.Checkout
 {
@@ -10,6 +12,11 @@ namespace PizzaCircle.Pages.Checkout
         public float PizzaPrice { get; set; }
         public string ImageTitle { get; set; }
 
+        private readonly ApplicationDbContext _context;
+        public CheckoutModel(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         public void OnGet()
         {
@@ -21,6 +28,14 @@ namespace PizzaCircle.Pages.Checkout
             {
                 ImageTitle = "Create";
             }
+
+            //saving changes to db
+            PizzaOrder pizzaOrder = new PizzaOrder();
+            pizzaOrder.PizzaName = PizzaName;
+            pizzaOrder.BasePrice = PizzaPrice;
+
+            _context.PizzaOrders.Add(pizzaOrder);
+            _context.SaveChanges();
         }
     }
 }
