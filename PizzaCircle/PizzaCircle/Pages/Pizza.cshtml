@@ -1,0 +1,48 @@
+﻿@page
+@model PizzaCircle.Pages.PizzaModel
+@{
+}
+
+
+<div class="text-center">
+    <div class="main-text">
+        <h1 class="display-4 text-capitalize text-black">Our GREAT section of pizzas ! </h1>
+        <h4> Try Our Pizza builder , just make and order !</h4>
+         <p class="small-text"><i> only one pizza per order</i></p>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5 mt-5">
+                <div class="w-100 row make-your-own-pizza-div">
+                    <div class="col-4">
+                        <img src="~/images/Pizzas/Create.png" class="w-100" />
+                    </div>
+                    <div class="col-8 align-items-center">
+                        <div class="align-middle make-your-own-pizza-text" >
+                            <h3 style="text-align: left">Create your Own Pizza</h3>
+                            <p style="text-align :left">Make your Own Pizza with Our Pizza Maker</p>
+                            <a class="btn btn-primary" style="float:left" asp-page="Forms/customPizza">
+                                Try  pIzzA    
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @foreach(var pizza in Model.LocalPizzaList)
+            {
+                var ImagePizzaPath = "~/images/Pizzas/" + pizza.ImageTitle + ".png";
+                <div class="col-4 mb-5">
+                    <img src="@ImagePizzaPath" class="w-100" asp-append-version="true" />
+                    <a class="btn btn-primary mt-1" asp-area=""
+                    asp-page="Checkout/Checkout"
+                    asp-route-PizzaName="@pizza.PizzaName"
+                    asp-route-ImageTitle="@pizza.ImageTitle"
+                    asp-route-PizzaPrice ="@pizza.FinalPrice"
+                    >Get This Piiza</a>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+</div>

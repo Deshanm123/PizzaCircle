@@ -1,0 +1,18 @@
+﻿@page
+@model PizzaCircle.Pages.Forms.CustomPizzaModel
+@{
+    
+}
+
+<div class="text-center container">
+    <h1>Create your Own Pizza</h1>
+    <form method="post">
+        <input type="text" asp-for="Pizza.PizzaName" placeholder="Give your Pizza a Name" /><br />
+        <input type="checkbox" asp-for="Pizza.TomatoSauce" placeholder="Tomato Sauce" />Tomato Sauce<br />
+        <input type="checkbox" asp-for="Pizza.Cheese" placeholder="Cheese" />Cheese<br />
+        <input type="checkbox" asp-for="Pizza.Pineapple" placeholder="Pineapple" />Pineapple<br />
+        <input type="checkbox" asp-for="Pizza.Beef" placeholder="Beef" />Beef<br />
+        <button class="btn btn-primary mt-1" type="submit" >Order my Pizza</button>
+
+    </form>
+</div> 

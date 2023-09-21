@@ -1,0 +1,16 @@
+﻿@page
+@model PizzaCircle.Pages.Checkout.CheckoutModel
+@{
+    var imagePath = "~/images/Pizzas/" + (@Model.ImageTitle + ".png");
+}
+
+
+<h1>Your Order! </h1>
+<div class="align-content-center">
+    <div class="col-3 mx-auto mb-5">
+        <img class="w-100" asp-append-version="true" src="@imagePath" />
+        <p>Your Order for  '@Model.PizzaName' Pizza is ready</p>
+        <p>Total price for Pizzza is  :  @Model.PizzaPrice</p><br />
+        <a class="btn alert-primary mt-1 mx-auto" asp-page="ThankYou">Confirm Order</a>
+    </div>
+</div>

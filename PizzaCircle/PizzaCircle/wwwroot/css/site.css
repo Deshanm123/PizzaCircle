@@ -16,3 +16,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+.small-text{
+    text-align :right;
+    color : grey;
+}
+
+.make-your-own-pizza-div{
+    background:grey;
+    margin:0;
+}
+
+.make-your-own-pizza-text{
+    margin : 100px 0 20px 0;
+    color:white;
+}
